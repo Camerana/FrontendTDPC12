@@ -1,0 +1,57 @@
+body {
+    background-color: #73b8e8;
+}
+
+p {
+    color: #ffff00;
+    /* font-size: 10px;
+    font-family: 'Franklin Gothic Medium'; */
+    font: 12px 'arial';
+}
+
+p span em {
+    font-size: 20px;
+}
+
+span {
+    color: blue;
+}
+
+em:hover {
+    color: #00ff00;
+    font-size: 30px;
+}
+
+/* unvisited link */
+a:link {
+    color: #FF0000;
+}
+
+/* visited link */
+a:visited {
+    color: #FF0000;
+}
+
+/* moused over */
+a:hover {
+    color: #FF0000;
+}
+
+/* selected with keyboard*/
+a:focus {
+    color: #FF0000;
+}
+
+/* activated link */
+a:active {
+    color: #FF0000;
+}
+
+/* grouped selectors */
+a:link, a:visited,a:hover,a:focus,a:active {
+    color: #FF0000;
+}
+
+p em, span, a {
+    font-size: 40px;
+}
