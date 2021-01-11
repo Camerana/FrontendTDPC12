@@ -1,0 +1,15 @@
+.my-table {
+    border: 1px solid #000000;
+    width: 500px;
+    height: 200px;
+    border-collapse: collapse;
+    background-color: #ffff00;
+}
+
+.my-table tr td {
+    border: 1px solid #000000;
+}
+
+.bg-orange {
+    background-color: orange;
+}
