@@ -1,0 +1,25 @@
+html {
+    height: 100%;
+}
+
+body{
+    margin: 0px;
+    height: 100%;
+}
+
+#header {
+    background-color: #00ff00;
+    height: 5%;
+    min-height: 30px;
+}
+
+#content {
+    background-color: #0000ff;
+    height: 90%;
+}
+
+#footer {
+    background-color: #ff0000;
+    height: 5%;
+    min-height: 30px;
+}
