@@ -27,28 +27,6 @@ body{
     position: relative;
 }
 
-#container p {
-    clear: both;
-}
-
-#content img{
-    float: left;
-}
-
-#sidebar {
-    background-color: #cc6262;
-    float: left;
-    width: 200px;
-    border: 1px solid #000000;
-}
-
-#container {
-    background-color: #259022;
-    float: right;
-    width: calc(100% - 200px);
-    border: 1px solid #000000;
-}
-
 /* END CONTENT */
 
 /* FOOTER */
@@ -59,23 +37,3 @@ body{
 }
 
 /* END FOOTER */
-#div_1 {
-    border: 1px solid #000000;
-    background-color: #ff0000;
-    width: 200px;
-    height: 200px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
-}
-
-#div_2 {
-    border: 1px solid #000000;
-    background-color: #355fc0;
-    width: 100px;
-    height: 100px;
-    position: fixed;
-    top: 0;
-    left: 0;
-}
