@@ -1,4 +1,10 @@
+@font-face {
+    font-family: myFirstFont;
+    src: url(fonts/KGALittleSpark.ttf);
+}
+
 * {
+    /* font-family: myFirstFont; */
     box-sizing: border-box;
 }
 
@@ -6,7 +12,7 @@ html {
     height: 100%;
 }
 
-body{
+body {
     margin: 0px;
     height: 100%;
 }
@@ -39,7 +45,6 @@ header h1 {
 nav {
     background-color: #3f3f3f;
     color: #ffffff;
-    
 }
 
 nav a,
@@ -50,7 +55,6 @@ nav a:visited{
     color: #ffffff;
 }
 
-
 nav div {
     /* width:200px;
     height: 30px; */
@@ -60,6 +64,10 @@ nav div {
 
 nav div:hover {
     background-color: #1a1a1a;
+}
+
+nav .active {
+    background-color: #941d0d;
 }
 
 /* END NAV */
