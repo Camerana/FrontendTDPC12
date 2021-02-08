@@ -70,6 +70,10 @@ nav .active {
     background-color: #941d0d;
 }
 
+nav .align-end-nav{
+    float: right;
+}
+
 /* END NAV */
 
 /* MAIN */
