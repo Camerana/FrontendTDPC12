@@ -40,28 +40,31 @@
             <div id="container">
                <div id="login-main-container">
                    <h2>EFFETTUA L'ACCESSO</h2>
-                    <div id="form">
+
+                   <!-- QUERY STRING -->
+
+                    <form action="index.html" >
                         <div class="form-input">
                             <label for="username">USERNAME</label>
-                            <input id="username"/>
+                            <input id="username" name="username" />
                         </div>
                         <div class="form-input">
                             <label for="password">PASSWORD</label>
-                            <input id="password" type="password" />
+                            <input id="password" type="password" name="password" />
                         </div>
                         <div class="form-input">
                             <label for="remember_me">RICORDAMI</label>
-                            <input id="remember_me" type="checkbox" />
+                            <input id="remember_me" type="checkbox" name="remember_me" />
                         </div>
                         <div class="form-button">
-                            <input type="button" value="ACCEDI" />
+                            <input type="submit" value="ACCEDI" />
                         </div>
-                    </div>
+                    </form>
                </div>
             </div>
         </main>
         <footer>
-            <h2>&copy;Copyright 2021 - TDPC 12</h2>
+            <h2>&copy; 2021 - TDPC12</h2>
         </footer>
     </div>
 </body>

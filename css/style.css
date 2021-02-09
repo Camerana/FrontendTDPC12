@@ -26,6 +26,7 @@ body {
 
 header {
     text-align: center;
+    position: relative;
 }
 
 header img {
@@ -36,6 +37,15 @@ header h1 {
     background-color: #ffffff;
     margin: 0;
     text-align: center;
+}
+
+#clock{
+    position: absolute;
+    top:0;
+    right: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #8a8a8a;
 }
 
 /* END HEADER */
