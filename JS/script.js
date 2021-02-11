@@ -34,8 +34,52 @@ var addTextToContainer = () => {
     container.style.textAlign = 'center';
 }
 
-var myButton = document.getElementById('myButton');
-myButton.addEventListener('click', addTextToContainer)
+var addInToDoList = () => {
+    var ulToDoList = document.querySelector("#myToDoList ul");
+    var itemToDoList = document.createElement("li");
+    var toDoText = document.querySelector('#myToDoList input');
+    var newToDoText = toDoText.value;
 
-var myTodoText = document.getElementById('todoText');
-myTodoText.value;
+    if (newToDoText == "") {
+        alert("Impossibile aggiungere un valore vuoto")
+    }
+    else {
+        itemToDoList.textContent = newToDoText;
+        ulToDoList.appendChild(itemToDoList);
+        toDoText.value = "";
+    }
+}
+
+var myButton = document.querySelector('#myToDoList button');
+myButton.addEventListener('click', addInToDoList)
+
+var img = document.getElementsByTagName('img')[0];
+img.style.opacity = 1.0;
+
+var fadeAway = function () {
+    img.style.opacity = img.style.opacity - .1;
+    if (img.style.opacity == 0){
+        clearInterval(intId);
+    }
+};
+
+var intId = setInterval(fadeAway, 1000);
+
+// function Test() {
+//     var a = 1;
+
+//     if (1 == 1) {
+//         let aa = 2;
+//         console.log(a)
+
+//         if (1 == 1) {
+//             console.log(aa)
+//         }
+//     }
+//     // ERRORE, aa NON ACCESSIBILE
+//     console.log(aa)
+// }
+
+// Test();
+
+

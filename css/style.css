@@ -108,6 +108,16 @@ main {
     position: relative;
 }
 
+#myToDoList {
+    width: 300px;
+    margin: auto;
+}
+
+#myToDoList ul li{
+    font-size: 20px;
+    color: #ff0000;
+}
+
 /* END MAIN */
 
 /* FOOTER */
