@@ -45,7 +45,17 @@ header h1 {
     right: 0;
     width: 200px;
     height: 100%;
-    background-color: #8a8a8a;
+    background-color: #969696;
+}
+
+#clock span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    font-size: 20px;
+    color: #ffffff;
 }
 
 /* END HEADER */
@@ -96,23 +106,6 @@ main {
     width: 1024px;
     margin: 10px auto;
     position: relative;
-}
-
-#container section{
-    height: 150px;
-    margin: 10px;
-    background-color: #7aa5dd;
-    position: relative;
-}
-
-#container section article {
-    width: 100px;
-    height: 100px;
-    margin: 10px;
-    background-color: #2427cf;
-    position: absolute;
-    right: 0;
-    top: 5px;
 }
 
 /* END MAIN */
