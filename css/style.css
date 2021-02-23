@@ -141,6 +141,8 @@ main {
     margin: auto;
     position: relative;
     background-color: #cccccc;
+    text-align: center;
+    padding: 15px;
 }
 
 #myToDoList {
@@ -152,6 +154,20 @@ main {
     font-size: 20px;
     color: #ff0000;
 }
+
+#containerListaPersone {
+    margin-top: 50px;
+}
+
+#tabellaPersone {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#tabellaPersone tr td {
+    border: 1px solid #000000;
+}
+
 
 /* END MAIN */
 
