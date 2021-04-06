@@ -1,3 +1,7 @@
+
+
+
+
 // var listaPersona = [
 //     {
 //         "nome": "Alessio",
@@ -87,8 +91,9 @@ function GetData() {
 
     // URL PER RECUPERO DATI OPEN SOURCE => https://jsonplaceholder.typicode.com
 
-    req.open('get', "JS/data.json", true);
-    req.setRequestHeader('Content-type', 'application/json')
+    //req.open('get', "JS/data.json", true);
+    req.open('get', "https://jsonplaceholder.typicode.com/users", true);
+    req.setRequestHeader('Content-type', 'application/json');
     req.send();
 }
 
