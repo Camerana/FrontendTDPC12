@@ -34,6 +34,26 @@ window.onload = Init;
 function Init() {
     setInterval(setClockTime, 1000);
 
+    // alert(math.sum(55, 65, 55, 65, 55, 65, 55, 65))
+
+    //RECUPERARE ELEMENTO CON JS PURO
+
+    var buttonJS = document.getElementById("btnGetData");
+
+    console.log("ButtonJS", buttonJS);
+
+    // var elements = $('div');
+
+    // $(elements[2]).hide();
+    // $(elements[2]).show();
+
+    $('div').eq(2).hide()//.show();
+
+    var buttonJquery = [2];
+
+    console.log("ButtonJquery", buttonJquery);
+
+
     document.getElementById("btnGetData").addEventListener("click", GetData);
 
     // // AGGIUNTA DI NUOVO ELEMENTO NELLA COLLECTION
