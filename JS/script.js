@@ -7,6 +7,9 @@ function Init() {
     var buttonJS = document.getElementById("btnGetDataJS");
     buttonJS.addEventListener("click", GetData);
     
+    var buttonJquery = $('#btnGetDataJquery');
+    buttonJquery.on("click", GetDataWithAjax);
+
     //$('div').eq(2).hide()//.show();
 }
 
@@ -53,6 +56,24 @@ function GetData() {
     req.open('get', "https://jsonplaceholder.typicode.com/users", true);
     req.setRequestHeader('Content-type', 'application/json');
     req.send();
+}
+
+function GetDataWithAjax() {
+    var settings = {
+        url: "https://jsonplaceholder.typicode.com/users",
+        dataType: 'json',
+        method: 'GET',
+        data: null,
+        async: true,
+        success: (data) => {
+            console.log(data);
+            FillData(data)
+        },
+        error: (xhr) => {
+            console.error(xhr);
+        }
+    };
+    $.ajax(settings);
 }
 
 function FillData(data) {
