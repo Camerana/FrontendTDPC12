@@ -1,75 +1,13 @@
-
-
-
-
-// var listaPersona = [
-//     {
-//         "nome": "Alessio",
-//         "cognome": "Filippucci",
-//     },
-//     {
-//         "nome": "Alessio",
-//         "cognome": "Filippucci",
-//     },
-//     {
-//         "nome": "Alessio",
-//         "cognome": "Filippucci",
-//     },
-//     {
-//         "nome": "Alessio",
-//         "cognome": "Filippucci",
-//     },
-//     {
-//         "nome": "Alessio",
-//         "cognome": "Filippucci",
-//     },
-//     {
-//         "nome": "Alessio",
-//         "cognome": "Filippucci",
-//     }
-// ]
-
 window.onload = Init;
 
 function Init() {
     setInterval(setClockTime, 1000);
 
-    // alert(math.sum(55, 65, 55, 65, 55, 65, 55, 65))
-
     //RECUPERARE ELEMENTO CON JS PURO
-
-    var buttonJS = document.getElementById("btnGetData");
-
-    console.log("ButtonJS", buttonJS);
-
-    // var elements = $('div');
-
-    // $(elements[2]).hide();
-    // $(elements[2]).show();
-
-    $('div').eq(2).hide()//.show();
-
-    var buttonJquery = [2];
-
-    console.log("ButtonJquery", buttonJquery);
-
-
-    document.getElementById("btnGetData").addEventListener("click", GetData);
-
-    // // AGGIUNTA DI NUOVO ELEMENTO NELLA COLLECTION
-    // listaPersona.push({
-    //     nome: "Paolo",
-    //     cognome: "Rossi"
-    // });
-
-    // listaPersona.forEach((persona, index) => {
-    //     if (index === 1) {
-    //         // MODIFICA DI UN ELEMENTO DELLA COLLECTION
-    //         persona.nome = "Paolino";
-    //         persona.cognome = "Paperino";
-    //     }
-    //     addPersonaToTable(persona.nome, persona.cognome);
-    // })
+    var buttonJS = document.getElementById("btnGetDataJS");
+    buttonJS.addEventListener("click", GetData);
+    
+    //$('div').eq(2).hide()//.show();
 }
 
 var setClockTime = () => {
