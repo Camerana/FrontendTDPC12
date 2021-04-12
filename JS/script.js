@@ -8,9 +8,9 @@ function Init() {
     buttonJS.addEventListener("click", GetData);
     
     var buttonJquery = $('#btnGetDataJquery');
-    buttonJquery.on("click", GetDataWithAjax);
-
-    //$('div').eq(2).hide()//.show();
+    buttonJquery.on("click", () => {
+        GetDataWithAjax("users", "GET", FillData);
+    });
 }
 
 var setClockTime = () => {
@@ -19,21 +19,6 @@ var setClockTime = () => {
     var date = now.toLocaleDateString();
     var time = now.toLocaleTimeString(); 
     clock.innerHTML = '<span>' + date + '<br/>' + time + '</span>';
-}
-
-var addPersonaToTable = (nome, cognome) => {
-    var tablePersona = document.getElementById("tabellaPersone");
-    var rowPersona = document.createElement("tr");
-    var tdNome = document.createElement("td");
-    var tdCognome = document.createElement("td");
-
-    tdNome.textContent = nome;
-    tdCognome.textContent = cognome;
-    
-    rowPersona.appendChild(tdNome);
-    rowPersona.appendChild(tdCognome);
-
-    tablePersona.appendChild(rowPersona);
 }
 
 function GetData() {
@@ -58,17 +43,16 @@ function GetData() {
     req.send();
 }
 
-function GetDataWithAjax() {
+const baseUrl = "https://jsonplaceholder.typicode.com/";
+
+function GetDataWithAjax(resource, method, onSuccess) {
     var settings = {
-        url: "https://jsonplaceholder.typicode.com/users",
+        url: baseUrl + resource,
         dataType: 'json',
-        method: 'GET',
+        method: method,
         data: null,
         async: true,
-        success: (data) => {
-            console.log(data);
-            FillData(data)
-        },
+        success: onSuccess,
         error: (xhr) => {
             console.error(xhr);
         }
@@ -76,19 +60,40 @@ function GetDataWithAjax() {
     $.ajax(settings);
 }
 
-function FillData(data) {
-    // AGGIUNTA DI NUOVO ELEMENTO NELLA COLLECTION
-    data.push({
-        nome: "Paolo",
-        cognome: "Rossi"
-    });
+var page = 0;
+var perPage = 5;
 
-    data.forEach((persona, index) => {
-        if (index === 1) {
-            // MODIFICA DI UN ELEMENTO DELLA COLLECTION
-            persona.nome = "Paolino";
-            persona.cognome = "Paperino";
-        }
-        addPersonaToTable(persona.nome, persona.cognome);
+function FillData(elements) {
+    $("#tabellaPersone").html("");
+
+    if (page + perPage > elements.length) {
+        page = 0;
+    }
+
+    elements.slice(page, page + perPage).forEach((element, index) => {
+        addElementToTable(element);
     })
+
+    page += perPage;
+}
+
+var addElementToTable = (data) => {
+    $("#tabellaPersone").append(
+        $("<tr>").append(
+            $("<td>").html(data.id),
+            $("<td>").html(data.name),
+            $("<td>").html(data.username),
+            $("<td>").html(data.email),
+            $("<td>").append(
+                $("<button>").html("DETTAGLI").on("click", () => {
+                    alert(data.id + ' ' + data.email);
+                })
+            )
+        )
+    );
+}
+
+function GetAlbumsByUser() {
+    GetDataWithAjax("/users/1/albums")
+    
 }
