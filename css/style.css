@@ -105,7 +105,7 @@ nav .align-end-nav{
     left: 0;
     top: 160px;
     min-height: calc(100% - 260px);
-    width: 300px;
+    width: 150px;
     border-right: 1px solid #888888;
     z-index: 9999;
 }
@@ -131,7 +131,7 @@ nav .align-end-nav{
 
 main {
     position: relative;
-    padding-left: 300px;
+    padding-left: 150px;
     padding-top: 10px;
     padding-bottom: 110px;
 }

@@ -95,5 +95,4 @@ var addElementToTable = (data) => {
 
 function GetAlbumsByUser() {
     GetDataWithAjax("/users/1/albums")
-    
 }
