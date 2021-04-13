@@ -143,6 +143,7 @@ main {
     background-color: #cccccc;
     text-align: center;
     padding: 15px;
+    padding-bottom: 0;
 }
 
 #containerListaPersone {
@@ -158,6 +159,17 @@ main {
     border: 1px solid #000000;
 }
 
+.albumsContainer {
+    margin: 30px 0;
+}
+
+.album{
+    float: left;
+    width: 20%;
+    height: 102px;
+    border: 1px solid #000000;
+    margin: 10px 0;
+}
 
 /* END MAIN */
 

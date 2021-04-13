@@ -9,7 +9,7 @@ function Init() {
     
     var buttonJquery = $('#btnGetDataJquery');
     buttonJquery.on("click", () => {
-        GetDataWithAjax("users", "GET", FillData);
+        GetDataWithAjax("users", "GET", renderUsers);
     });
 }
 
@@ -27,8 +27,7 @@ function GetData() {
     req.addEventListener('load', () => {
         if (req.status === 200) {
             var data = JSON.parse(req.responseText);
-            console.log(data);
-            FillData(data)
+            renderUsers(data)
         }
         else{
             alert("Errore durante il recupero dei dati. Riprovare più tardi.")
@@ -63,21 +62,21 @@ function GetDataWithAjax(resource, method, onSuccess) {
 var page = 0;
 var perPage = 5;
 
-function FillData(elements) {
+var renderUsers = (users) => {
     $("#tabellaPersone").html("");
 
-    if (page + perPage > elements.length) {
+    if (page + perPage > users.length) {
         page = 0;
     }
 
-    elements.slice(page, page + perPage).forEach((element, index) => {
-        addElementToTable(element);
+    users.slice(page, page + perPage).forEach((user, index) => {
+        renderUser(user);
     })
 
     page += perPage;
 }
 
-var addElementToTable = (data) => {
+var renderUser = (data) => {
     $("#tabellaPersone").append(
         $("<tr>").append(
             $("<td>").html(data.id),
@@ -86,13 +85,30 @@ var addElementToTable = (data) => {
             $("<td>").html(data.email),
             $("<td>").append(
                 $("<button>").html("DETTAGLI").on("click", () => {
-                    alert(data.id + ' ' + data.email);
+                    //alert(data.id + ' ' + data.email);
+                    //alert(`${data.id} ${data.email}`);
+
+                    var albumsResource = "users/" + data.id + "/albums";
+
+                    // GetDataWithAjax(albumsResource, "GET", (albums) => {
+                    //     console.log(albums);
+                    // });
+
+                    GetDataWithAjax(albumsResource, "GET", renderAlbums);
                 })
             )
         )
     );
 }
 
-function GetAlbumsByUser() {
-    GetDataWithAjax("/users/1/albums")
+var renderAlbums = (albums) => {
+    var albumsContainer = $("<div>").addClass("albumsContainer");
+
+    albums.forEach((album) => {
+        albumsContainer.append(
+            $("<div>").addClass("album").html(album.title)
+        )
+    })
+
+    $("#container").append(albumsContainer);
 }
