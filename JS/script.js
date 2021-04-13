@@ -136,6 +136,9 @@ var renderAlbumsWithUser = (albums, user) => {
         GetDataWithAjax("albums/" + album.id + "/photos", "GET", (photos) => {
             var photo = photos[0];
 
+            //CTRL + K + U => UNCOMMENT
+            //CTRL + K + C => COMMENT
+
             // var divAlbum = $("<div>");
             // var albumTitle = $("<h3>");
 
