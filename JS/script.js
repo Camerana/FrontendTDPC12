@@ -76,25 +76,27 @@ var renderUsers = (users) => {
     page += perPage;
 }
 
-var renderUser = (data) => {
+var renderUser = (user) => {
     $("#tabellaPersone").append(
         $("<tr>").append(
-            $("<td>").html(data.id),
-            $("<td>").html(data.name),
-            $("<td>").html(data.username),
-            $("<td>").html(data.email),
+            $("<td>").html(user.id),
+            $("<td>").html(user.name),
+            $("<td>").html(user.username),
+            $("<td>").html(user.email),
             $("<td>").append(
                 $("<button>").html("DETTAGLI").on("click", () => {
-                    //alert(data.id + ' ' + data.email);
-                    //alert(`${data.id} ${data.email}`);
+                    //alert(user.id + ' ' + user.email);
+                    //alert(`${user.id} ${user.email}`);
 
-                    var albumsResource = "users/" + data.id + "/albums";
+                    var albumsResource = "users/" + user.id + "/albums";
 
                     // GetDataWithAjax(albumsResource, "GET", (albums) => {
                     //     console.log(albums);
                     // });
 
-                    GetDataWithAjax(albumsResource, "GET", renderAlbums);
+                    $(".albumsContainer").html("");
+                    //GetDataWithAjax(albumsResource, "GET", renderAlbums);
+                    GetDataWithAjax(albumsResource, "GET", (albums) => renderAlbumsWithUser(albums, user));
                 })
             )
         )
@@ -105,9 +107,52 @@ var renderAlbums = (albums) => {
     var albumsContainer = $("<div>").addClass("albumsContainer");
 
     albums.forEach((album) => {
-        albumsContainer.append(
-            $("<div>").addClass("album").html(album.title)
-        )
+        var photosResource = "albums/" + album.id + "/photos?_start=0&_limit=1";
+        
+        GetDataWithAjax(photosResource, "GET", (photos) => {
+            console.log(photos)
+            var photo = photos[0];
+
+            albumsContainer.append(
+                $("<div>").addClass("album").append(
+                    $("<h3>").html(album.title),
+                    $("<img>").attr("src", photo.thumbnailUrl)
+                )
+            )
+        });
+    })
+
+    $("#container").append(albumsContainer);
+}
+
+var renderAlbumsWithUser = (albums, user) => {
+    var albumsContainer = $("<div>").addClass("albumsContainer");
+
+    albumsContainer.append(
+        $("<h1>").html(`ALBUMS di ${user.name}`)
+    );
+
+    albums.forEach((album) => {
+        GetDataWithAjax("albums/" + album.id + "/photos", "GET", (photos) => {
+            var photo = photos[0];
+
+            // var divAlbum = $("<div>");
+            // var albumTitle = $("<h3>");
+
+            // albumTitle.html(album.title);
+
+            // divAlbum.addClass("album");
+            // divAlbum.css("background-image", `url(${photo.thumbnailUrl})`);
+            // divAlbum.append(albumTitle);
+
+            // albumsContainer.append(divAlbum);
+
+            albumsContainer.append(
+                $("<div>").addClass("album").css("background-image", `url(${photo.thumbnailUrl})`).append(
+                    $("<h3>").html(album.title)
+                )
+            )
+        });
     })
 
     $("#container").append(albumsContainer);
