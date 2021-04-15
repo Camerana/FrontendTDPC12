@@ -1,10 +1,9 @@
 const baseUrl = "https://jsonplaceholder.typicode.com/";
 
-window.onload = Init;
-
-function Init() {
-    
-}
+// METODO INIZIALE CON DOM CARICATA E PRONTA
+$(() => {
+    console.log("App Ready!")
+})
 
 function GetDataWithAjax(resource, method, onSuccess) {
     var settings = {
