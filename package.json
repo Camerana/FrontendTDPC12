@@ -1,5 +1,5 @@
 {
-  "name": "html_inizio",
+  "name": "tdpc12",
   "version": "1.0.0",
   "description": "",
   "main": "index.html",
@@ -10,7 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "browser-sync": "^2.26.13",
-    "jquery": "^3.6.0",
-    "mathjs": "^9.3.0"
+    "jquery": "^3.6.0"
   }
 }
