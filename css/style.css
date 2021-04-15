@@ -2,3 +2,11 @@ html, body {
     margin: 0px;
     height: 100%;
 }
+
+.row div {
+    height: 150px;
+}
+
+.pippo {
+    height: 200px;
+}
